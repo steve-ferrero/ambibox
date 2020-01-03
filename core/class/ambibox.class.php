@@ -49,18 +49,23 @@ class ambibox extends eqLogic {
      */
 
     public function ambiboxCmd($id) {
+        $url = $this->getConfiguration('url');
+        $port = $this->getConfiguration('port');
         var_dump($id);
         var_dump($this->getConfiguration('url'));
         var_dump($this->getConfiguration('port'));
+        var_dump(parse_url($url));
+        var_dump(parse_url($url)[host]);
+        $host = parse_url($url)[host];
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
             CURLOPT_PORT => "8088",
-            CURLOPT_URL => "http://192.168.1.8:8088/",
+            CURLOPT_URL => $url . ':' . $port . '',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
+            CURLOPT_TIMEOUT => 2,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => "status=" . $id,
@@ -71,7 +76,7 @@ class ambibox extends eqLogic {
                 "Connection: keep-alive",
                 "Content-Length: 10",
                 "Content-Type: application/x-www-form-urlencoded",
-                "Host: 192.168.1.8:8088",
+                "Host: " . $host . ":" . $port,
                 "cache-control: no-cache"
             ),
         ));
