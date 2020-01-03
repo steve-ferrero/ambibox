@@ -51,11 +51,6 @@ class ambibox extends eqLogic {
     public function ambiboxCmd($id) {
         $url = $this->getConfiguration('url');
         $port = $this->getConfiguration('port');
-        var_dump($id);
-        var_dump($this->getConfiguration('url'));
-        var_dump($this->getConfiguration('port'));
-        var_dump(parse_url($url));
-        var_dump(parse_url($url)[host]);
         $host = parse_url($url)[host];
         $curl = curl_init();
 
@@ -82,13 +77,9 @@ class ambibox extends eqLogic {
         ));
 
         curl_exec($curl);
-        $error = curl_error($curl);
+        curl_error($curl);
 
         curl_close($curl);
-
-        if ($error) {
-            throw new Exception($error);
-        }
     }
 
 
