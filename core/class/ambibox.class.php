@@ -82,7 +82,7 @@ class ambibox extends eqLogic {
             $off->setName(__('Désactiver', __FILE__));
         }
         $off->setEqLogic_id($this->getId());
-        $off->setLogicalId('on');
+        $off->setLogicalId('off');
         $off->setType('action');
         $off->setSubType('other');
         $off->save();
