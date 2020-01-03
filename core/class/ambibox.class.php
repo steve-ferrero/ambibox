@@ -48,6 +48,44 @@ class ambibox extends eqLogic {
       }
      */
 
+    public function ambiboxCmd($id) {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_PORT => "8088",
+            CURLOPT_URL => "http://192.168.1.8:8088/",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "status=$$id",
+            CURLOPT_HTTPHEADER => array(
+                "Accept: */*",
+                "Accept-Encoding: gzip, deflate",
+                "Cache-Control: no-cache",
+                "Connection: keep-alive",
+                "Content-Length: 9",
+                "Content-Type: application/x-www-form-urlencoded",
+                "Host: 192.168.1.8:8088",
+                "Postman-Token: 6b3b8b64-766a-4885-8a09-37d5753fed78,3c66e8e9-88aa-4004-8411-26675d310fc3",
+                "User-Agent: PostmanRuntime/7.20.1",
+                "cache-control: no-cache"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
+        }
+    }
 
 
     /*     * *********************Méthodes d'instance************************* */
@@ -143,7 +181,8 @@ class ambiboxCmd extends cmd {
      */
 
     public function execute($_options = array()) {
-        
+        $eqlogic = $this->getEqLogic();
+        $info = $eqlogic-> ambiboxCmd($this->getLogicalId());
     }
 
     /*     * **********************Getteur Setteur*************************** */
