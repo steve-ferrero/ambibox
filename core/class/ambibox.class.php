@@ -72,8 +72,6 @@ class ambibox extends eqLogic {
                 "Content-Length: 10",
                 "Content-Type: application/x-www-form-urlencoded",
                 "Host: 192.168.1.8:8088",
-                "Postman-Token: ccdaf2f7-6f72-4694-ab10-51f2793b8ebc,7dd05d66-e783-4064-be65-86a826fec1b7",
-                "User-Agent: PostmanRuntime/7.20.1",
                 "cache-control: no-cache"
             ),
         ));
