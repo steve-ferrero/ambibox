@@ -55,7 +55,7 @@ class ambibox extends eqLogic {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_PORT => "8088",
+            CURLOPT_PORT => $port,
             CURLOPT_URL => $url . ':' . $port . '',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
