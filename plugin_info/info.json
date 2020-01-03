@@ -1,0 +1,13 @@
+{
+	"id" : "ambibox",
+	"name" : "Ambibox",
+	"description" : "Plugin pour s'interfacer avec le serveur Ambibox",
+	"licence" : "AGPL",
+	"author" : "Steve Ferrero",
+	"require" : "3.2",
+	"category" : "monitoring",
+	"changelog" : "",
+	"documentation" : "",
+	"language" : "",
+	"compatibility" : ""
+}
