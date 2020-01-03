@@ -65,7 +65,27 @@ class ambibox extends eqLogic {
     }
 
     public function postSave() {
-        
+        $on = $this->getCmd(null, 'on');
+        if (!is_object($on)) {
+            $on = new ambiboxCmd();
+            $on->setName(__('Activer', __FILE__));
+        }
+        $on->setEqLogic_id($this->getId());
+        $on->setLogicalId('on');
+        $on->setType('action');
+        $on->setSubType('other');
+        $on->save();
+
+        $off = $this->getCmd(null, 'off');
+        if (!is_object($off)) {
+            $off = new ambiboxCmd();
+            $off->setName(__('Désactiver', __FILE__));
+        }
+        $off->setEqLogic_id($this->getId());
+        $off->setLogicalId('on');
+        $off->setType('action');
+        $off->setSubType('other');
+        $off->save();
     }
 
     public function preUpdate() {
