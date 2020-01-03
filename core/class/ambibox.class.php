@@ -60,7 +60,7 @@ class ambibox extends eqLogic {
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "status=off",
+            CURLOPT_POSTFIELDS => "status=$id",
             CURLOPT_HTTPHEADER => array(
                 "Accept: */*",
                 "Accept-Encoding: gzip, deflate",
@@ -75,15 +75,15 @@ class ambibox extends eqLogic {
             ),
         ));
 
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
+        curl_exec($curl);
+        $error = curl_error($curl);
 
         curl_close($curl);
 
-        if ($err) {
-            echo "cURL Error #:" . $err;
+        if ($error) {
+            throw new Exception($error);
         } else {
-            echo $response;
+            var_dump($this);
         }
     }
 
@@ -181,8 +181,9 @@ class ambiboxCmd extends cmd {
      */
 
     public function execute($_options = array()) {
+        var_dump($this);
         $eqlogic = $this->getEqLogic();
-        $info = $eqlogic-> ambiboxCmd($this->getLogicalId());
+        $eqlogic-> ambiboxCmd($this->getLogicalId());
     }
 
     /*     * **********************Getteur Setteur*************************** */
