@@ -60,7 +60,7 @@ class ambibox extends eqLogic {
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "status=$id",
+            CURLOPT_POSTFIELDS => "status=" . $id,
             CURLOPT_HTTPHEADER => array(
                 "Accept: */*",
                 "Accept-Encoding: gzip, deflate",
