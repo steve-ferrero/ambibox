@@ -49,6 +49,7 @@ class ambibox extends eqLogic {
      */
 
     public function ambiboxCmd($id) {
+        var_dump($id);
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
