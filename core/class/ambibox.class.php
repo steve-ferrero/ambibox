@@ -50,6 +50,7 @@ class ambibox extends eqLogic {
 
     public function ambiboxCmd($id) {
         var_dump($id);
+        var_dump($this);
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -83,8 +84,6 @@ class ambibox extends eqLogic {
 
         if ($error) {
             throw new Exception($error);
-        } else {
-            var_dump($this);
         }
     }
 
@@ -182,7 +181,6 @@ class ambiboxCmd extends cmd {
      */
 
     public function execute($_options = array()) {
-        var_dump($this);
         $eqlogic = $this->getEqLogic();
         $eqlogic-> ambiboxCmd($this->getLogicalId());
     }
