@@ -96,7 +96,7 @@ foreach (jeeObject::all() as $object) {
        <div class="form-group">
         <label class="col-sm-3 control-label">{{Url Ambibox}}</label>
         <div class="col-sm-3">
-            <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="city" placeholder="url"/>
+            <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="url" placeholder="url"/>
         </div>
     </div>
 </fieldset>
